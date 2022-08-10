@@ -1,5 +1,5 @@
 ﻿
-namespace Common
+namespace Application
 {
     public static class ModelConstants
     {

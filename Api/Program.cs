@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Serilog;
-using TestApp.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +26,6 @@ builder.Services.AddControllers()
 
 builder.Services
     .AddPersistence(builder.Configuration)
-    .AddInfrastructure(builder.Configuration)
     .AddApplication();
 
 #region swagger
