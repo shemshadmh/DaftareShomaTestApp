@@ -9,7 +9,11 @@ namespace Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.HasKey(person => person.Id);
+            builder.HasIndex(person => person.Id)
+                .IsUnique();
+
+            builder.Property(person => person.Id)
+                .ValueGeneratedNever(); ;
 
             builder.Property(person => person.Name)
                 .HasMaxLength(ModelConstants.Person.NameMaxLength)

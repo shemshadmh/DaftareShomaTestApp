@@ -9,7 +9,11 @@ namespace Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.HasKey(transaction => transaction.Id);
+            builder.HasIndex(transaction => transaction.Id)
+                .IsUnique();
+
+            builder.Property(transaction => transaction.Id)
+                .ValueGeneratedNever(); ;
 
             builder.Property(transaction => transaction.Date)
                 .HasColumnType(ModelConstants.Shared.SmallDatetimeColumnType)
